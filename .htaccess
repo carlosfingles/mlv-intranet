@@ -24,8 +24,8 @@ Allow from all
 
 <ifModule mod_rewrite.c>
   Options +FollowSymlinks
-  RewriteEngine on
-  
+  RewriteEngine On
+  RewriteBase /
   RewriteRule ^profile/(.*)/(.*)$ ./profile_$2.php?profile=$1
   RewriteRule ^profile/(.*) ./profile.php?profile=$1
   RewriteRule ^manage$ ./admin/index.php
@@ -145,9 +145,3 @@ AddOutputFilterByType DEFLATE application/javascript
 AddOutputFilterByType DEFLATE application/x-javascript
 AddOutputFilterByType DEFLATE application/x-shockwave-flash
 </IfModule>
-
-php_value upload_max_filesize 20M
-php_value post_max_size 20M
-php_value max_execution_time 200
-php_value max_input_time 200 
-php_value max_file_uploads 500 
