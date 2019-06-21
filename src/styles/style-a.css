@@ -85,6 +85,10 @@ footer{
     border-radius: 50%;
     border: 2px solid #fff;
     background-size: cover; }
+.pagination {
+    display: block !important; }
+.pagination > .page-item {
+    float: left !important; }
 
 @media (max-width:992px){
     .w-lg-100{
