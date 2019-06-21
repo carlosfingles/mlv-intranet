@@ -12,8 +12,10 @@
 
 require('../Init.php');
 
-if(!isset($_SESSION['isLogged']))
-	header("Location: " . $site['url'] ."?secc=".base64_encode($escaped_link));
+if(!isset($_SESSION['isLogged'])){
+    echo"<script>window.location = '" . $site['url'] ."?secc=".base64_encode($escaped_link). "';</script>";
+    exit();
+}
 
 $titlePage= 'Mis Temas en el Foro';
 $descrPage = 'Mis Temas en el Foro de ' . $site['title'];

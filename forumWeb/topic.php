@@ -11,8 +11,10 @@
  */
 
 require('../Init.php');
-if(!isset($_SESSION['isLogged']) || !isset($_GET['q']))
-	header("Location: " . $site['url'] ."?secc=".base64_encode($escaped_link));
+if(!isset($_SESSION['isLogged']) || !isset($_GET['q'])){
+    echo"<script>window.location = '" . $site['url'] ."?secc=".base64_encode($escaped_link). "';</script>";
+    exit();
+}
 
 $titlePage= 'No existe el tema';
 $descrPage = $titlePage;
