@@ -52,11 +52,11 @@ CREATE TABLE IF NOT EXISTS `site_settings` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 INSERT INTO `site_settings` (`var`, `result`) VALUES
-('title', 'Mi Sitio Web'),
-('slogan', 'Descripcion'),
+('title', 'MLV Intranet'),
+('slogan', 'INTRANET VERSION ALPHA'),
 ('keywords', 'keyword 1, keyword 2, keyword 3'),
 ('author', 'Carlos Zambrano'),
-('url', 'http://localhost/'),
+('url', 'http://amataenglish.com/'),
 ('favicon', 'favicon.ico'),
 ('logo', 'logo.png'),
 ('scriptHead', ''),
