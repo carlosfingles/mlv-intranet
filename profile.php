@@ -28,8 +28,10 @@ $descrPage = $dscP;
 
 include(Templates . 'Head.php');
 
-if(!isset($profile))
-	header("Location: " . $context['site']['url']);
+if(!isset($profile)){
+    echo"<script>window.location = '".$site['url']."';</script>";
+    exit();
+}
 
 $sql = query("SELECT * FROM site_users WHERE username = '" . $profile . "' LIMIT 1");
 

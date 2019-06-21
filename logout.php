@@ -16,6 +16,6 @@ $_SESSION = Array();
 
 session_destroy();
 
-header("Location: " . $site['url']);
-
+echo"<script>window.location = '".$site['url']."';</script>";
+exit();
 ?>

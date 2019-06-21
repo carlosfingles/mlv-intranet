@@ -13,7 +13,8 @@
 require('Init.php');
 
 if(isset($_SESSION['isLogged']) && isset($_GET['secc']) && isset($_GET['secc'])!=''){
-	header("Location: http://" . base64_decode($_GET['secc']));
+    echo"<script>window.location = 'http://" . base64_decode($_GET['secc']) . "';</script>";
+    exit();
 }
 
 $titlePage= $context['site']['slogan'];
@@ -61,7 +62,7 @@ include(Templates . 'Head.php');
                       <h1>Noticias!</h1>
                         <div class="font-size-14">
                             <p>Bienvenido a todos!</p>
-                            <p>Por los momentos, el intranet funcionara solo para mantener el registro de usuarios al día. Con el tiempo iremos incluyendo herramientas de comunicación interna.</p>
+                            <p>Por los momentos, solo funciona el foro.</p>
                             <p>Asegúrese al registrarse que los datos son los correctos, ya que en función de ellos los contactaremos para participar en los diferentes proyectos.</p>
                             <p>También procure tenerlos al día en caso de mudanza o de emigrar del país.</p>
                             <p>Muchas gracias, y no dude en contactarnos en caso de cualquier pregunta.</p>

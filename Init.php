@@ -10,6 +10,8 @@
  *         Instagram : @carlosfingles
  */
 
+session_start();
+
 define('PIXELARIO', true);
 define('IP', $_SERVER['REMOTE_ADDR']);
 
@@ -19,8 +21,6 @@ define('ROOT', dirname(__FILE__) . DS);
 define('Kernel', ROOT . 'Kernel' . DS);
 define('Modules', Kernel . 'Modules' . DS);
 define('Templates', Kernel . 'Templates' . DS);
-
-session_start();
 
 require(Kernel . 'Functions.php');
 

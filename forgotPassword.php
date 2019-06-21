@@ -12,8 +12,10 @@
 
 require('Init.php');
 
-if(isset($_SESSION['isLogged']))
-	header("Location: " . $site['url']);
+if(isset($_SESSION['isLogged'])){
+    echo"<script>window.location = '" . $site['url']. "';</script>";
+    exit();
+}
 
 $titlePage= 'Restablecer Contrase&ntilde;a';
 $descrPage = '¿Se te olvidó tu contraseña?';
