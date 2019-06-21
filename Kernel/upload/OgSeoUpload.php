@@ -10,9 +10,9 @@
  *         Instagram : @carlosfingles
  */
 
-require('./Class.Thumbnail.php');
-
 require('../../Init.php');
+
+require('./Class.Thumbnail.php');
 
 if (isset($_FILES["file"]))
 {

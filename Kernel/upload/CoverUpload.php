@@ -12,9 +12,9 @@
 
 error_reporting(0);
 
-require('./Class.Thumbnail.php');
-
 require('../../Init.php');
+
+require('./Class.Thumbnail.php');
 
 if (isset($_FILES["file"]))
 {
@@ -77,7 +77,7 @@ if (isset($_FILES["file"]))
                         }
                     }
 
-                  query("UPDATE site_users SET cover= '".$nombre. "." .$extension."' WHERE id= '".$context['user']['id']."' ");
+                  query("UPDATE site_users SET cover= '".$nombre. "." .$extension."' WHERE id= '".$context['user']['id']."'");
                     echo 'La imagen <b>'.$nombre. '.' .$extension.'</b> fue actualizada.;'.$nombre. '.' .$extension.';valid';
                 }
                    

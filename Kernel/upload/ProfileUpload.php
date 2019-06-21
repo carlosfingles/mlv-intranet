@@ -12,9 +12,9 @@
 
 error_reporting(0);
 
-require('./Class.Thumbnail.php');
-
 require('../../Init.php');
+
+require('./Class.Thumbnail.php');
 
 if (isset($_FILES["file"]))
 {
