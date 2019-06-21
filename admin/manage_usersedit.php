@@ -12,8 +12,10 @@
 
 require('../Init.php');
 
-if(!isset($_SESSION['isLogged']) || $user['rank'] < $context['permissions']['admin_users'])
-	header("Location: " . $site['url']);
+if(!isset($_SESSION['isLogged']) || $user['rank'] < $context['permissions']['admin_users']){
+    echo"<script>window.location = '" . $site['url'] . "';</script>";
+    exit();
+}
 
 $profile= $_GET['q'];
 
@@ -21,13 +23,15 @@ $sql = query("SELECT * FROM site_users WHERE username = '" . $profile . "' LIMIT
 
 if(num_rows($sql) == 0)
 {
-    	header("Location: " . $site['url']. 'manage/Error404');
+    echo"<script>window.location = '" . $site['url'] . "manage/Error404';</script>";
+    exit();
 }else{
     $rT = fetch_assoc($sql);
 
 if($user['rank']=='2'){
     if($user['state']!=$rT['state']){
-        header("Location: " . $site['url']);
+        echo"<script>window.location = '" . $site['url'] . "';</script>";
+        exit();
     }
 }
 

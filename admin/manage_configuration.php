@@ -12,8 +12,10 @@
 
 require('../Init.php');
 
-if(!isset($_SESSION['isLogged']) || $user['rank'] < $context['permissions']['admin_config'])
-	header("Location: " . $site['url']);
+if(!isset($_SESSION['isLogged']) || $user['rank'] < $context['permissions']['admin_config']){
+    echo"<script>window.location = '" . $site['url'] . "';</script>";
+    exit();
+}
 
 $titlePage= 'Configuraci&oacute;n';
 $descrPage = $titlePage;
