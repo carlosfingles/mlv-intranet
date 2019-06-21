@@ -10,7 +10,7 @@
  *         Instagram : @carlosfingles
  */
 ?>
-<nav id="navMenuPr" class="navbar navbar-expand-lg navbar-light bg-light shadowBorder">
+<nav id="navMenuPr" class="navbar navbar-expand-lg navbar-light bg-light shadowBorder fixed-top">
  
   <a class="navbar-brand" href="<?=$context['site']['url'];?>">
       <img src="<?=$context['site']['url'];?>images/image/<?=$site['logo']?>" style="min-width:40px; max-width: 40px"  height="40" class="mr-2"> <?=$site['title']?>
@@ -70,6 +70,13 @@
     </ul>
   </div>
 </nav>
+
+<nav id="navMenuPr" class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="<?=$context['site']['url'];?>">
+      <img src="<?=$context['site']['url'];?>images/image/<?=$site['logo']?>" style="min-width:40px; max-width: 40px"  height="40" class="mr-2"> <?=$site['title']?>
+    </a>
+</nav>
+
 
 <?php		if(!isset($_SESSION['isLogged']))		{		?>
 
