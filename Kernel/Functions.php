@@ -10,9 +10,6 @@
  *         Instagram : @carlosfingles
  */
 
-if(file_exists('Setup/') && ($_SERVER['PHP_SELF'] !== 'Setup/' OR $_SERVER['PHP_SELF'] !== 'Setup/index.php'))
-	header("Location: Setup/");
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -99,8 +96,11 @@ $context = array(
 
 if(isset($_SESSION['isLogged']))
 	query("UPDATE site_users SET ip = '" . IP . "' WHERE id = '" . $context['user']['id'] . "'");
-if(isset($_SESSION['isLogged']) && empty($user['id']))
-    header("Location: logout.php");
+
+if(isset($_SESSION['isLogged']) && empty($user['id'])){
+    echo"<script>window.location = '".$site['url']."logout.php';</script>";
+    die();
+}
 
 $datMail = query("SELECT * FROM site_emails WHERE id = 'mail'");
 $email = fetch_assoc($datMail);
@@ -110,33 +110,35 @@ function SendMailer($emailAddress, $nameAddress, $subject, $emailContent, $rest,
     $nameAddress=explode(',', $nameAddress);
     global $email, $site;
     if($email['correoBool']=='true'){
-        
+        // Instantiation and passing `true` enables exceptions
         $mail = new PHPMailer(true);
 
         try {
-            
-            $mail->SMTPDebug = 0;
-            $mail->isSMTP();
-            $mail->Host = $email['smtpServer'];
-            $mail->SMTPAuth = true;
-            $mail->Username = $email['user'];
-            $mail->Password = $email['pass'];
-            $mail->SMTPSecure = $email['encryp'];
-            $mail->Port = $email['port'];
+            //Server settings
+            $mail->SMTPDebug = 0; // Enable verbose debug output
+            $mail->isSMTP(); // Set mailer to use SMTP
+            $mail->Host = $email['smtpServer']; // Specify main and backup SMTP servers
+            $mail->SMTPAuth = true; // Enable SMTP authentication
+            $mail->Username = $email['user']; // SMTP username
+            $mail->Password = $email['pass']; // SMTP password
+            $mail->SMTPSecure = $email['encryp']; // Enable TLS encryption, `ssl` also accepted
+            $mail->Port = $email['port']; // TCP port to connect to
 
+            //Recipients
             $mail->setFrom($email['user'], $site['title']);
             
             for($x=0;$x<count($emailAddress); $x++){
                 if($emailAddress[$x]!=''){
                     if($nameAddress[$x]!=''){
-                        $mail->addAddress($emailAddress[$x], $nameAddress[$x]);
+                        $mail->addAddress($emailAddress[$x], $nameAddress[$x]); // Name is optional
                     }else{
-                        $mail->addAddress($emailAddress[$x]);
+                        $mail->addAddress($emailAddress[$x]); // Name is optional
                     }
                 }
             }
 
-            $mail->isHTML(true);
+            // Content
+            $mail->isHTML(true); // Set email format to HTML
             $mail->Subject = $subject;
             $mail->Body = $emailContent;
 
