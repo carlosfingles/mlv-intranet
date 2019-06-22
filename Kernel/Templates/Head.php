@@ -16,26 +16,26 @@ $urlPage= "http://" . $host . $url;
 
 $mystring = $context['site']['url'];
 $pos1 = strpos($mystring, 'https');
-    if($pos1 !== false){
-        $urlPage= "https://" . $host . $url;
-        if (!isset($_SERVER['HTTPS'])) {
-            $uriName= trim($mystring, '/');
-            echo"<script>window.location = '".$uriName.$_SERVER['REQUEST_URI']."';</script>";
-            exit();
-        }
+if($pos1 !== false){
+    $urlPage= "https://" . $host . $url;
+    if (!isset($_SERVER['HTTPS'])) {
+        $uriName= trim($mystring, '/');
+        echo"<script>window.location = '".$uriName.$_SERVER['REQUEST_URI']."';</script>";
+        exit();
     }
+}
 
 $pos2 = strpos($mystring, 'www.');
-    if($pos2 !== false){
-        $uri=  $_SERVER['SERVER_NAME'];
-        $finduri='www.';
-        $posuri= strpos($uri, $finduri);
-        if ($posuri === false) {
-            $uriName2= trim($mystring, '/');
-            echo"<script>window.location = '".$uriName2.$_SERVER['REQUEST_URI']."';</script>";
-            exit();
-        }
+if($pos2 !== false){
+    $uri=  $_SERVER['SERVER_NAME'];
+    $finduri='www.';
+    $posuri= strpos($uri, $finduri);
+    if ($posuri === false) {
+        $uriName2= trim($mystring, '/');
+        echo"<script>window.location = '".$uriName2.$_SERVER['REQUEST_URI']."';</script>";
+        exit();
     }
+}
 ?>
 <!doctype html>
 <html lang="es">
@@ -85,8 +85,7 @@ if (isset($metaProd) && $metaProd=='true'){
 <meta property="og:site_name" content="<?=$context['site']['title'];?>" />
 <meta property="og:locale" content="en_ES" />
 
-<script type="text/javascript">
-	var encriptation = "NDU1MjJlMjczN2I2MTJmMjQxODBiMjAzZjdhMDMyOGVlYzUzZWM3Yw==";
+<script>
 	var site_url = "<?=$context['site']['url'];?>";
 </script>
 
@@ -108,7 +107,6 @@ if (isset($metaProd) && $metaProd=='true'){
 
 <script src="<?=$context['site']['url'];?>src/scripts/progress/jquery.ajax-progress.js"></script>
 <script src="<?=$context['site']['url'];?>src/scripts/Kernel.js" type="text/javascript"></script>
-<script src="<?=$context['site']['url'];?>src/scripts/General.js" type="text/javascript"></script>
 <script src="<?=$context['site']['url'];?>src/scripts/Users.js" type="text/javascript"></script>
 <script src="<?=$context['site']['url'];?>src/scripts/Pixelario.js" type="text/javascript"></script>
 
