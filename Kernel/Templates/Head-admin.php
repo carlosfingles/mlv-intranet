@@ -20,7 +20,8 @@ $pos1 = strpos($mystring, 'https');
         $urlPage= "https://" . $host . $url;
         if (!isset($_SERVER['HTTPS'])) {
             $uriName= trim($mystring, '/');
-            header("Location:".$uriName.$_SERVER['REQUEST_URI'] );
+            echo"<script>window.location = '".$uriName.$_SERVER['REQUEST_URI']."';</script>";
+            exit();
         }
     }
 
@@ -31,7 +32,8 @@ $pos2 = strpos($mystring, 'www.');
         $posuri= strpos($uri, $finduri);
         if ($posuri === false) {
             $uriName2= trim($mystring, '/');
-            header("Location:".$uriName2.$_SERVER['REQUEST_URI'] );
+            echo"<script>window.location = '".$uriName2.$_SERVER['REQUEST_URI']."';</script>";
+            exit();
         }
     }
 ?>
@@ -102,7 +104,7 @@ if (isset($metaProd) && $metaProd=='true'){
 
 <link rel="shortcut icon" href="<?=$context['site']['url'];?>images/favicon/<?=$site['favicon'];?>" />
 
-<link rel="stylesheet" media="screen" href="<?=$context['site']['url'];?>src/styles/style-a.css">
+<link rel="stylesheet" media="screen" href="<?=$context['site']['url'];?>src/styles/style-b.css">
 
 <script src="<?=$context['site']['url'];?>src/scripts/progress/jquery.ajax-progress.js"></script>
 <script src="<?=$context['site']['url'];?>src/scripts/Kernel.js" type="text/javascript"></script>
