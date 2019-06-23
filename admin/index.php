@@ -83,6 +83,16 @@ include(Templates . 'Head-admin.php');
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="card bg-secondary text-white my-1">
+                                        <div class="card-body d-flex flex-column">
+                                            <p class="d-flex justify-content-center"><span class="fas fa-newspaper font-size-180"></span></p>
+                                            <p class="d-flex justify-content-center mb-0">
+                                                <a href="<?=$site['url']?>manage/newsletter" class="text-white stretched-link">Newsletter</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             <?php
                                 }
                             ?>
