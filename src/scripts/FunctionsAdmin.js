@@ -479,6 +479,78 @@ function deleteUser(i){
         });
     }
 }
+
+
+function newsletterCountry(){
+    var countryUsers = $("#reg_country").val();
+    var stateUsers = $("#reg_states").val();
+    var rank = $("#reg_rank").val();
+    var ruta =  site_url + "Kernel/Actions/Manage/newsletter_get_mails.php";
+    $.ajax({
+        url: ruta,
+        type: "GET",
+        data: 'country=' + countryUsers + '&state=' + stateUsers + '&rank=' + rank,
+
+        beforeSend: function()
+        {
+            $("#mail_address").attr('disabled','');
+        },
+        success: function(datos)
+        {
+            $("#mail_address").val(datos.trim());
+            $("#mail_address").removeAttr('disabled');
+        }
+    });
+}
+function newsletterStates(e){
+    var country = $("#reg_country").val();
+    var ruta =  site_url + "Kernel/Actions/getStates.php";
+    $.ajax({
+        url: ruta,
+        type: "POST",
+        data: 'country=' + country + '&index=' + e,
+
+        beforeSend: function()
+        {
+            $("#reg_states").html('<option value="nulo">Cargando...</option>');
+        },
+        success: function(datos)
+        {
+            $("#reg_states").html(datos);
+            newsletterCountry();
+        }
+    });
+}
+function newsletter(address, subject, content){
+    $.ajax({
+        type: 'POST',
+        data: 'address=' + address + '&subject='  + subject + '&content='  + content,
+        url: site_url + '/Kernel/Actions/Manage/sendNewsletter.php',
+
+        beforeSend: function()
+        {
+            $('#mail_rest').html('');
+            $("#newsletterSend").attr('Disabled', '');
+            $("#newsletterSend").html('Cargando...');
+            $('#mail_address').removeClass('is-invalid');
+            $('#mail_subject').removeClass('is-invalid');                
+        },
+        success: function(data)
+        {
+            if(address == '' || address == 'No hay usuarios'){
+                $('#mail_address').addClass('is-invalid');
+            }
+            if(subject == ''){
+                $('#mail_subject').addClass('is-invalid');
+            }
+
+            $('#mail_rest').html(data);
+            $("#newsletterSend").removeAttr('Disabled');
+            $("#newsletterSend").html('Enviar');
+        }
+    });
+}
+
 function addCategoryForum(title, desc, enlace){
     $.ajax({
             type: 'POST',
