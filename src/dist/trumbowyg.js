@@ -728,7 +728,6 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
             t.$ta
                 .on('keyup', function () {
                     t.$c.trigger('tbwchange');
-                    console.log('hoa');
                 })
                 .on('paste', function () {
                     setTimeout(function () {
