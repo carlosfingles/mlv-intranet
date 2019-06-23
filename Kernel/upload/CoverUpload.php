@@ -77,7 +77,7 @@ if (isset($_FILES["file"]))
                         }
                     }
 
-                  query("UPDATE site_users SET cover= '".$nombre. "." .$extension."' WHERE id= '".$context['user']['id']."'");
+                    query("UPDATE site_users SET cover= '".$nombre. "." .$extension."' WHERE id= '".$context['user']['id']."'");
                     echo 'La imagen <b>'.$nombre. '.' .$extension.'</b> fue actualizada.;'.$nombre. '.' .$extension.';valid';
                 }
                    
