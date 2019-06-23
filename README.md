@@ -8,7 +8,7 @@ Web oficial del [Intranet del MLV](https://mlv-intranet.org/)
 ```SQL
 UPDATE site_settings SET result= 'NUEVA URL' WHERE var='url'
 ```
-- Ahora dirigase a la carpeta donde instalará el sitio web y luego a `.\Kernel\Settings.php` y modifique los siguientes datos:
+- Ahora dirígase a la carpeta donde instalará el sitio web y luego a `.\Kernel\Settings.php` y modifique los siguientes datos:
 ```php
 <?php
 $MySQL['HOST'] = 'localhost'; // Servidor MySQL
@@ -17,3 +17,8 @@ $MySQL['PASS'] = 'Contrasena'; // Contraseña MySQL
 $MySQL['BASE'] = 'DB'; // Nombre de la base de datos
 ?>
 ```
+- Seguidamente regístrese en el sitio y después dirígase dentro de dase de datos a la tabla `site_users` y cambie el campo `rank` de 0 a 3 para tener las funciones de administrador. También puede usar esta sentencia:
+```SQL
+UPDATE site_users SET rank= '3' WHERE id='1'
+```
+- El sitio web ya se encuentra instalado! en caso de error o cualquier problema contacte a [carlosfingles@gmail.com](mailto:carlosfingles@gmail.com).
