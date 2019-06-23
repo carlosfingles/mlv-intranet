@@ -10,24 +10,7 @@
  *         Instagram : @carlosfingles
  */
 
-require('../../../Init.php');
+require('../Class/Class.Forum.php');
 
-$id = $_POST['id'];
-
-if(!empty($id))
-{
-    $q = query("SELECT * FROM site_forums_topics WHERE id = '" . $id . "'");
-    if(num_rows($q) !== 0)
-    {
-        query("DELETE FROM site_forums_topics WHERE id = '" . $id . "'");
-        query("DELETE FROM site_forums_comments WHERE id_topic = '" . $id . "'");
-        $key = sha1(md5('topic'.$id));
-        query("DELETE FROM site_data_emails WHERE keyPr = '" . $key . "'");
-
-        echo 'Tema borrado con &eacute;xito.';
-    }
-    else
-        echo 'El Tema no existe.';
-}else{
-    echo'No hay parametros';
-}
+$forums = new Forum($_POST['id'],  null, null);
+$forums->DeleteTopic();

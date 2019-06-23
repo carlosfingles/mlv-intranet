@@ -10,21 +10,7 @@
  *         Instagram : @carlosfingles
  */
 
-require('../../../Init.php');
+require('../Class/Class.Forum.php');
 
-$id = $_POST['id'];
-
-if(!empty($id))
-{
-    $q = query("SELECT * FROM site_forums_comments WHERE id = '" . $id . "'");
-    if(num_rows($q) !== 0)
-    {
-        query("DELETE FROM site_forums_comments WHERE id = '" . $id . "'");
-
-        echo 'Comentario borrado con &eacute;xito.';
-    }
-    else
-        echo 'El comentario no existe.';
-}else{
-    echo'No hay parametros';
-}
+$forums = new Forum($_POST['id'], null, null);
+$forums->DeleteComment();

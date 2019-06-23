@@ -10,23 +10,7 @@
  *         Instagram : @carlosfingles
  */
 
-require('../../../Init.php');
+require('../Class/Class.Forum.php');
 
-$id = strip_tags(real_escape_string($_POST['id']));
-$title = strip_tags(real_escape_string($_POST['title']));
-$description = strip_tags(htmlentities(real_escape_string($_POST['description'])));
-
-if(isset($_SESSION['isLogged']))
-{
-    if(!empty($id) && !empty($title) && !empty($description))
-    {
-        global $context;
-
-        query("UPDATE site_forums_topics SET 
-        date = '" . time() . "',
-        title = '" . $title . "',
-        description = '" . $description . "' WHERE id = '" .$id. "'");
-        echo 'up';
-    }else
-        echo 'No puedes dejar este campo vacio.';
-}
+$forums = new Forum($_POST['id'],  $_POST['title'], $_POST['description']);
+$forums->EditTopic();
