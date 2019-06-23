@@ -1,7 +1,7 @@
 # MLV intranet
 Web oficial del [Intranet del MLV](https://mlv-intranet.org/)
 ## Configuración e Instalación del Sitio Web
-- Crear una nuevas base de datos.
+- Crear una nueva base de datos MySQL.
 - Importar los 3 archivos SQL dentro de la carpeta `.\BDs` a la base de datos.
 - Modificar la url del sitio web dirigiéndose a la tabla `site_settings`  y cambiando el campo `result` donde el valor de `var` es url. También puede usar esta sentencia:
 
