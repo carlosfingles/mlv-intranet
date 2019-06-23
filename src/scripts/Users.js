@@ -9,8 +9,6 @@
  *         Instagram : @carlosfingles
  */
 
-var updates = {};
-
 var Users = {
 	Login: function(email, pass, remember)
 	{
