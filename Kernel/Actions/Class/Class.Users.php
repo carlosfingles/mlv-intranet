@@ -115,10 +115,10 @@ Class Users
                             fundsAndDonations = '" . self::$var24 . "', 
                             anotherWayToCollaborate = '" . self::$var25 . "',
                             rank = '0' ");
+                            $idU= insert_id();
                             
-                            $_SESSION['isLogged'] = insert_id();
+                            $_SESSION['isLogged'] = $idU;
                             
-                                
                             $datCountry = query("SELECT * FROM countries WHERE id = '" . self::$var13 . "' LIMIT 1");
                             $country = fetch_assoc($datCountry);
                                     
