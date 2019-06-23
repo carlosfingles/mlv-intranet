@@ -10,9 +10,7 @@
  *         Instagram : @carlosfingles
  */
 
-require('./Clases/Class.ConfigMail.php');
+require('./Class/Class.ConfigMail.php');
 
-new ConfigMail(null, null, null, null, null, $_POST['bool']);
-ConfigMail::ConfMailBool();
-
-?>
+$e_mail = new ConfigMail(null, null, null, null, null, $_POST['bool']);
+$e_mail->ConfMailBool();

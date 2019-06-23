@@ -10,26 +10,7 @@
  *         Instagram : @carlosfingles
  */
 
-require('../../Init.php');
-$country = $_POST['country'];
+require('./Class/Class.Users.php');
 
-$qU = query("SELECT * FROM site_users WHERE id = '" . $context['user']['id'] . "' LIMIT 1");
-$rU = fetch_assoc($qU);
-
-$q = query("SELECT * FROM countries  ORDER by phonecode ASC");
-if($country!="nulo"){
-    while($r = fetch_assoc($q)){
-        if($r['id']==$country){
-            echo '<option selected value="'.$r['phonecode'].'">+('. $r['phonecode'] .')</option>';
-        }else{
-            echo '<option value="'.$r['phonecode'].'">+('. $r['phonecode'] .')</option>';
-        }
-    }
-}else{
-    while($r = fetch_assoc($q)){
-            echo '<option value="'.$r['phonecode'].'">+('. $r['phonecode'] .')</option>';
-    }
-}
-
-
-?>
+$users = new Users($_POST['country'], null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+$users->GetCodesPhones();

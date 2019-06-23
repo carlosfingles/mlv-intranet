@@ -10,9 +10,7 @@
  *         Instagram : @carlosfingles
  */
 
-require('./Clases/Class.ConfigMail.php');
+require('./Class/Class.ConfigMail.php');
 
-new ConfigMail($_POST['mail_server'], $_POST['mail_user'], $_POST['mail_pass'], $_POST['mail_encryp'], $_POST['mail_port'], $_POST['mail_corNot']);
-ConfigMail::ConfMail();
-
-?>
+$e_mail = new ConfigMail($_POST['mail_server'], $_POST['mail_user'], $_POST['mail_pass'], $_POST['mail_encryp'], $_POST['mail_port'], $_POST['mail_corNot']);
+$e_mail->ConfMail();

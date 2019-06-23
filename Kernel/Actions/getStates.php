@@ -10,44 +10,12 @@
  *         Instagram : @carlosfingles
  */
 
-require('../../Init.php');
-$country = $_POST['country'];
+require('./Class/Class.Users.php');
 
-if($country!="nulo"){    
-    $qU = query("SELECT * FROM site_users WHERE id = '" . $context['user']['id'] . "' LIMIT 1");
-    $rU = fetch_assoc($qU);
-    
-    if($rU['rank']=='2' && isset($_POST['index']) && $_POST['index']=='true'){
-        $q = query("SELECT * FROM states WHERE id = '" . $rU['state'] . "'");
-    }else{
-        $q = query("SELECT * FROM states WHERE country_id = '" . $country . "'");
-        echo '<option value="nulo">Elegir Estado/Provincia</option>';
-    }
-    
-    while($r = fetch_assoc($q)){
-        
-        if(isset($_POST['index']) && $_POST['index']=='true'){
-
-            $countryDat= query ("SELECT * FROM site_users WHERE state ='" . $r['id'] . "' ");
-
-            if(num_rows($countryDat)!==0){
-                if($rU['state']==$r['id']){
-                    echo '<option selected value="'.$r['id'].'">'. $r['name'] .'</option>';
-                }else{
-                    echo '<option value="'.$r['id'].'">'. $r['name'] .'</option>';
-                }
-            }
-        }else{
-            if($rU['state']==$r['id']){
-                echo '<option selected value="'.$r['id'].'">'. $r['name'] .'</option>';
-            }else{
-                echo '<option value="'.$r['id'].'">'. $r['name'] .'</option>';
-            }
-        }
-    }
-}else{
-    echo '<option value="nulo">Elegir Estado/Provincia</option>';
+$index='false';
+if(isset($_POST['index'])){
+    $index=$_POST['index'];
 }
 
-
-?>
+$users = new Users($_POST['country'], null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+$users->GetStates($index);

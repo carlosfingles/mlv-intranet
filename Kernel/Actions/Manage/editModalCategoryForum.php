@@ -10,7 +10,7 @@
  *         Instagram : @carlosfingles
  */
 
-require('./Clases/Class.Forum.php');
+require('./Class/Class.Forum.php');
 
 $id =$_GET['id'];
 

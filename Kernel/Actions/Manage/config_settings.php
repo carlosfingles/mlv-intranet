@@ -10,11 +10,10 @@
  *         Instagram : @carlosfingles
  */
 
-require('./Clases/Class.ConfigSite.php');
+require('./Class/Class.ConfigSite.php');
 
-new ConfigSite($_POST['config_title'], $_POST['config_url'], $_POST['config_slogan'], $_POST['config_keys'], null);
-ConfigSite::Title();
-ConfigSite::Url();
-ConfigSite::Slogan();
-ConfigSite::Keys();
-?>
+$config = new ConfigSite($_POST['config_title'], $_POST['config_url'], $_POST['config_slogan'], $_POST['config_keys'], null);
+$config->Title();
+$config->Url();
+$config->Slogan();
+$config->Keys();

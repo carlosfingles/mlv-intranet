@@ -10,9 +10,7 @@
  *         Instagram : @carlosfingles
  */
 
-require('./Clases/Class.ConfigSite.php');
+require('./Class/Class.ConfigSite.php');
 
-new ConfigSite($_POST['Develop_head'], null, null, null, null);
-ConfigSite::Develop();
-
-?>
+$config = new ConfigSite($_POST['Develop_head'], null, null, null, null);
+$config->Develop();

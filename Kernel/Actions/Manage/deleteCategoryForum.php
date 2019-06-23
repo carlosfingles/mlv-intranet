@@ -10,9 +10,7 @@
  *         Instagram : @carlosfingles
  */
 
-require('./Clases/Class.Forum.php');
+require('./Class/Class.Forum.php');
 
-new Forum($_GET['id'], null, null, null);
-Forum::DeleteForumCategory();
-
-?>
+$forum = new Forum($_GET['id'], null, null, null);
+$forum->DeleteForumCategory();

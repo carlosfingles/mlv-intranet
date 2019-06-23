@@ -10,9 +10,7 @@
  *         Instagram : @carlosfingles
  */
 
-require('./Clases/Class.Forum.php');
+require('./Class/Class.Forum.php');
 
-new Forum(null, $_POST['title'], $_POST['desc'], $_POST['url']);
-Forum::AddForumCategory();
-
-?>
+$forum = new Forum(null, $_POST['title'], $_POST['desc'], $_POST['url']);
+$forum->AddForumCategory();

@@ -10,9 +10,7 @@
  *         Instagram : @carlosfingles
  */
 
-require('./Clases/Class.ConfigSite.php');
+require('./Class/Class.ConfigSite.php');
 
-new ConfigSite($_POST['bool'], null, null, null, null);
-ConfigSite::TwitterCardAct();
-
-?>
+$config = new ConfigSite($_POST['bool'], null, null, null, null);
+$config->TwitterCardAct();

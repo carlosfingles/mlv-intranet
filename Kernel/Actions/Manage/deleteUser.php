@@ -10,11 +10,9 @@
  *         Instagram : @carlosfingles
  */
 
-require('./Clases/Class.User.php');
+require('./Class/Class.User.php');
 
 $id = @$_GET['id'];
 
-new User($id, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-User::DeleteUser();
-
-?>
+$user = new User($id, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+$user->DeleteUser();

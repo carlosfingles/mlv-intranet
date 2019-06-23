@@ -10,10 +10,8 @@
  *         Instagram : @carlosfingles
  */
 
-require('./Clases/Class.User.php');
+require('./Class/Class.User.php');
 
-$userReg=str_replace(' ', '', $_POST['reg_username']);
-new User($_POST['id'], null, null, $userReg, null, $_POST['reg_email'], null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-User::UpdateUserCog();
-
-?>
+$userReg = str_replace(' ', '', $_POST['reg_username']);
+$user = new User($_POST['id'], null, null, $userReg, null, $_POST['reg_email'], null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+$user->UpdateUserCog();

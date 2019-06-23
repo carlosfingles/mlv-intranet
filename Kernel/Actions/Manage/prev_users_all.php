@@ -10,7 +10,7 @@
  *         Instagram : @carlosfingles
  */
 
-require('./Clases/Class.User.php');
+require('./Class/Class.User.php');
 
 error_reporting(E_ALL ^ E_NOTICE);
 

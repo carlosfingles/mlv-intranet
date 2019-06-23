@@ -10,12 +10,10 @@
  *         Instagram : @carlosfingles
  */
 
-require('./Clases/Class.User.php');
+require('./Class/Class.User.php');
 
 $id = @$_GET['id'];
 $rank = @$_GET['reg_rank'];
 
-new User($id, $rank, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-User::UpdateUserRank();
-
-?>
+$user = new User($id, $rank, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+$user->UpdateUserRank();
